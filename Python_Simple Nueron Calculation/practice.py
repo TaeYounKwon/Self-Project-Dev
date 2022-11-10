@@ -3,6 +3,7 @@ import numpy as np
 def sigmoid(x):
     return 1/(1+np.exp(-x))
 
+
 # Simple Perceptron calculation
 X = np.array([1,2]) # shape = (2,)
 W = np.array([[1,3,5],[2,4,6]]) # shape = (2,3)
