@@ -65,10 +65,27 @@ network = init_network()
 # Check Accuracy with batch_size 
 batch_size = 100 
 accuracy_cnt = 0
+
+# range(start, end-1, step)
+# ex) list(range(0,10,3)) => [0,3,6,9]
 for i in range(0,len(x),batch_size):
-    x_batch = x[i:i+batch_size]
+    x_batch = x[i:i+batch_size] # x[0:100],x[100:200] ...
     y_batch = predict(network, x_batch)
-    p = np.argmax(y_batch, axis=1)
+    
+    # get the index of element that has the highest accuracy
+    # axis=1 means getting it from 
+    p = np.argmax(y_batch, axis=1) 
     accuracy_cnt += np.sum(p==t[i:i+batch_size])
     
 print("Accuracy: "+str(float(accuracy_cnt)/len(x)))    
+
+
+'''
+From this Chapter!
+
+Neuron network use sigmoid function
+perceptron used step_function to calculate.
+Learn more about these next chapter!!
+
+
+'''
