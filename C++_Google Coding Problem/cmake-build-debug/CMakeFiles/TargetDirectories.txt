@@ -1,3 +1,0 @@
-C:/Users/tempe/OneDrive/바탕 화면/태윤/태윤1/development/before/googlefun/cmake-build-debug/CMakeFiles/googlefun.dir
-C:/Users/tempe/OneDrive/바탕 화면/태윤/태윤1/development/before/googlefun/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/tempe/OneDrive/바탕 화면/태윤/태윤1/development/before/googlefun/cmake-build-debug/CMakeFiles/rebuild_cache.dir
