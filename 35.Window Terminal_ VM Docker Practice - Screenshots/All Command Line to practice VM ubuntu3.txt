@@ -1,0 +1,22 @@
+# how to make private registry
+docker run -d -p 5000:5000 --name registry registry
+
+# Check if it's running well
+docker ps
+
+# 소속변경!
+docker tag my-image:v1.0.0 localhost:5000/my-image:v1.0.0
+
+# 소속변경 push
+docker push localhost:5000/my-image:v1.0.0
+
+# 잘 저장되어있는지 확인
+# curl을 이용한 간단한 웹 통신
+
+# 로컬호스트에 있는 레지스트리에서 카탈로그를 달라고 하는중
+# {"repositories["my-image"]}
+curl -X GET http:localhost:5000/v2/_catalog
+
+# {"name":"my-image","tag":["v1.0.0"]}
+curl -X GET http:localhost:5000/v2/my-image/tags/list
+

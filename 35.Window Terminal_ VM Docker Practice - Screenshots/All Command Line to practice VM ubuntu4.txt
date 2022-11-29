@@ -1,0 +1,9 @@
+# Connect to Docker Hub 
+
+docker login
+
+docker tag my-image:v1.0.0 username/my-image:v1.0.0
+docker push username/my-image:v1.0.0
+
+docker pull username/my-image:v1.0.0
+

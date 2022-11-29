@@ -1,0 +1,62 @@
+# From this file
+# I will practice how to create and build Dockerfile
+
+# Create and edit hello.txt
+vi hello.txt
+
+# in the text file
+# click 'I' to write
+
+Hello World
+
+# ESC to stop
+# :w to save
+# :q to quit
+# :wq to save and quit
+# :q! to quit without saving
+
+# Check the file
+cat hello.txt
+
+# touch world.txt
+# create empty file
+
+rm world.txt
+rm hello.txt
+
+# back to home directory
+cd $home
+
+#create folder
+mkdir docker-practice
+cd docker-practice
+
+# create dockerfile
+touch Dockerfile
+vi Dockerfile
+
+# i
+#FROM ubuntu:18.04
+#RUN apt-get update
+#CMD ["echo","Welcome to Virtual Machine Practice"]
+#ESC
+#:wq
+
+cat Dockerfile
+docker build -t my-image:v1.0.0 .
+
+# See if my-image is built well
+docker images
+
+# To select and check my-image
+docker images | grep my-image
+# or 
+ls -al | grep Dockerfile
+
+# Checkk all images
+docker images
+
+# How to make personal registery 
+
+
+

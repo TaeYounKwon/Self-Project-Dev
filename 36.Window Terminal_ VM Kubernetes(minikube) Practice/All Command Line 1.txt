@@ -1,0 +1,85 @@
+# Install Minikube
+curl -LO https://storage.googleapis.com/minikube/releases/v1.22.0/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+# Check if minikube is downloaded well
+minikube version # minikube version: v1.22.0
+
+# Install Kubectl
+curl -LO https://dl.k8s.io/release/v1.22.1/bin/linux/amd64/kubectl
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+# Check if kubectl is downloaded well
+kubectl version
+
+#start minikube
+minikube start --driver=docker
+
+# Check status
+minikube status
+
+# start kubectl
+kubectl get pod
+kubectl get pod -n kube-system
+
+# remove minikube
+minikube delete
+
+# restart the minikube
+minikube start --driver=docker
+minikube status
+
+#Kubernetes Architecture - Managing Pod
+
+vi pod.yaml
+# i
+# apiVersion: v1
+# kind: Pod	
+# metadata:
+# 	name: counter
+# spec:
+# 	containers:
+#	- name: count
+# 	  image: busybox
+# 	  args: [/bin/sh, -c, 'i=0;while true; do echo "$i: $(date)"; sleep 1; done']
+
+# run yaml file
+kubectl apply -f pod.yaml
+
+kubectl get pod
+#NAME      READY   STATUS    RESTARTS   AGE
+#counter   1/1     Running   0          30s
+
+kubectl get pod -A # Show all kubectl + docker files
+
+kubectl describe pod counter # shows detailed info about my pod
+
+kubectl get pod -o wide
+#NAME      READY   STATUS    RESTARTS   AGE     IP           NODE       NOMINATED NODE   READINESS GATES
+#counter   1/1     Running   0          3m35s   172.17.0.3   minikube   <none>           <none>
+
+kubectl get pod -w # monitoring the pod - tracking the changes 
+
+# check pod log
+# kubectl logs + pod-name
+kubectl logs counter
+
+kubectl logs counter -f # monitoring the pod 2
+
+kubectl exec -it counter sh
+# ps
+# exit
+
+# remove pod
+kubectl delete pod counter # ctl+c
+
+# or delete by using yaml
+kubectl delete pod -f pod.yaml # require yaml file!
+
+
+
+
+
+
+
+
